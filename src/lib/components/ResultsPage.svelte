@@ -10,7 +10,7 @@
 
 	let viewport: HTMLDivElement;
 	let results: HTMLDivElement;
-	let item_width: number;
+	// let item_width: number;
 	let item_height: number;
 	let num_columns = 4;
 
@@ -20,9 +20,10 @@
 	let padding_bottom = 0;
 
 	function handle_resize() {
+        if(movies.length < 1) return;
 		const first = results.firstChild as HTMLAnchorElement;
 
-		item_width = first.offsetWidth;
+		// item_width = first.offsetWidth;
 		item_height = first.offsetHeight;
 
 		num_columns = 4;
