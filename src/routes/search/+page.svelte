@@ -9,11 +9,13 @@
     <h1>Search</h1>
 
     <form>
-        <input type="query" value={data.query} autocomplete="off" spellcheck="false" />
+        <input name="query" bind:value={data.query} autocomplete="off" spellcheck="false" />
     </form>
 
     {#if data.query}
-        <ResultsPage movies={data.movies} next={null} />
+        {#key data.query}
+            <ResultsPage movies={data.movies} next={null} />
+        {/key}
     {/if}
 </div>
 

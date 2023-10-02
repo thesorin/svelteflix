@@ -12,8 +12,8 @@ export async function load({ fetch }: LoadEvent) {
         api.get(fetch, `/movie/upcoming`, defaultQuery)
     ]) as Array<MovieList>;
 
-    const featured = await api.get(fetch, `/movie/${trending.results[0].id}`, {
-        append_to_response: 'images'
+    const featured = await api.get(fetch, `/movie/${trending.results[0].id}`, { 
+        append_to_response: 'images,videos,recomandations'
     })
 
     return {
