@@ -4,7 +4,7 @@ import type { LoadEvent } from '@sveltejs/kit';
 
 export async function load({ params, fetch }: LoadEvent) {
 	const movie = (await api.get(fetch, `/movie/${params.id}`, {
-		append_to_response: 'images,videos,recomandations'
+		append_to_response: 'images,videos,recommendations'
 	})) as MovieDetails;
 
 	const trailer = movie.videos.results.find(

@@ -13,7 +13,7 @@ export async function load({ fetch }: LoadEvent) {
     ]) as Array<MovieList>;
 
     const featured = await api.get(fetch, `/movie/${trending.results[0].id}`, { 
-        append_to_response: 'images,videos,recomandations'
+        append_to_response: 'images,videos,recommendations'
     })
 
     return {
