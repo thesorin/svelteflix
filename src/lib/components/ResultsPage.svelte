@@ -41,8 +41,6 @@
 
 		padding_top = Math.floor(a / num_columns) * item_height;
 		padding_bottom = Math.floor((movies.length - b) / num_columns) * item_height;
-
-        console.log(remaining);
 	}
 
 	onMount(handle_resize);
@@ -73,7 +71,6 @@
 <style>
 	.viewport {
 		overflow-y: auto;
-		height: 500px;
 	}
 
     .viewport::-webkit-scrollbar {
