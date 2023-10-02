@@ -5,13 +5,20 @@ import type { LoadEvent } from '@sveltejs/kit';
 const base = `https://api.movies.tastejs.com`;
 
 export async function load({ fetch }: LoadEvent) {
-    const trending = await api.get(fetch, `/trending/movie/day`) as MovieList;
+    const [trending, now_playing, upcoming] = await Promise.all([
+        api.get(fetch, `/trending/movie/day`),
+        api.get(fetch, `/movie/now_playing`),
+        api.get(fetch, `/movie/upcoming`)
+    ]) as Array<MovieList>;
+
     const featured = await api.get(fetch, `/movie/${trending.results[0].id}`, {
         append_to_response: 'images'
     })
 
     return {
         trending,
-        featured
+        featured,
+        now_playing,
+        upcoming
     }
 }
