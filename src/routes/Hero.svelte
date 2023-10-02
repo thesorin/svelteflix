@@ -11,7 +11,7 @@
     $: logos = images.logos.find((img) => img.iso_639_1 === 'en') || images.logos[0];
 </script>
 
-<a href="/movie/{movie.id}">
+<a href="/movie/{movie.id}" class="column">
 	<img
 		class="backdrop"
 		src={media(backdrop.file_path, 1280)}
@@ -22,7 +22,7 @@
 		class="logo"
 		src={media(logos.file_path, 1280)}
 		alt={movie.title}
-		style="aspect-ratio: {backdrop.aspect_ratio};"
+		style="aspect-ratio: {logos.aspect_ratio};"
 	/>
 </a>
 
@@ -35,7 +35,6 @@
 	}
     .logo {
         position: absolute;
-        left: 0;
         top: 0;
         height: 100%;
         width: 30%;
