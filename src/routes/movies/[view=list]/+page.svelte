@@ -6,5 +6,8 @@
 
 <div class="column">
     <h1>{data.title}</h1>
-    <ResultsPage movies={data.movies} next={data.next_page ? `/movies/{data.view}?page={data.next_page}` : null } />
+    <ResultsPage movies={data.movies} next={data.next_page ? `/movies/{data.view}?page={data.next_page}` : null }
+    on:end={() => {
+        console.log('load more data');
+    }} />
 </div>
